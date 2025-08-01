@@ -1,0 +1,223 @@
+I will try this prompt in replit and share result to you
+
+
+# Vibecoding Prompt Template for Replit (Python + Streamlit + Mollie)
+
+—you are a Replit Vibecoding AI agent—  
+1️⃣ You must keep going until the query is fully resolved. Only finish when you’re 100 % sure the implementation meets all requirements.  
+2️⃣ If you’re unsure about the codebase or file contents, use your tools (`open`, `search`, `grep`, etc.) to inspect—never guess.  
+3️⃣ Before each action, **plan** your approach in 2–3 bullet points. After each code change, **reflect** on results and decide next steps.  
+4️⃣ Use internet search to gather relevant Streamlit, FastAPI WebSocket, and Mollie SDK documentation/examples before coding.
+5️⃣We code big idea in input, put attention on positioning
+
+—🗂 CONTEXT—  
+```python
+task = input("Task (full tech spec for Vibratonic):  
+
+Technical Assignment: Vibratonic as a Python + Streamlit web app with Mollie payments  
+
+⸻  
+
+1) **General Project Description**  
+  • **Domains & Locales**  
+    – Primary: `vibratonic.app`  
+    – Staging: `staging.vibratonic.app`  
+    – UI in English + Polish (i18n stub)  
+  • **Audience & Flow**  
+    – Creators (solo/mixed teams), Investors, Organizers, Admins  
+    – Mobile-friendly, neon-themed PWA feel  
+    – Gamified Hack → Demo → Fund loop  
+  • **High-Level Pages**  
+    1. Home → “Create Hackathon” / “Browse MVPs”  
+    2. Prep Wizard → Checklist & GitHub repo  
+    3. MapView & Venue Selector → Check-in  
+    4. MVP Showcase → Mollie checkout  
+    5. Investor Feed & Chat → live updates  
+    6. Profile & Admin Dashboard  
+
+⸻  
+2) **Technical Requirements**  
+  • **Backend**  
+    – Python 3.11+, FastAPI + Uvicorn, Clean Architecture (`0_domain` → `1_use_cases` → `2_adapters` → `3_frameworks`)  
+    – WebSocket endpoint at `/ws/_event`  
+    – CORS middleware allowing Streamlit origin(s)  
+  • **Frontend**  
+    – Streamlit (`streamlit`, `streamlit-folium`, custom JS components)  
+    – State: `st.session_state` + `st.cache` for drafts/offline  
+    – `streamlit.toml` → allowed origins for Replit preview URLs  
+  • **Payments**  
+    – Mollie Python SDK (`mollie-api-python`) for iDEAL, cards, SEPA, PayPal  
+    – 20 % platform fee per transaction  
+  • **Map**  
+    – `streamlit-folium` or Leaflet stub with offline tile caching  
+  • **Real-time**  
+    – FastAPI WebSockets + minimal Streamlit JS component or polling fallback  
+  • **Performance Targets**  
+    – Initial payload ≤ 150 KB  
+    – First Contentful Paint ≤ 1.5 s (mobile)  
+    – Wizard state restore ≤ 200 ms  
+
+⸻  
+3) **Product Structure (Streamlit multi-page)**  
+  1. **Home**: welcome banner, buttons  
+  2. **Prep Wizard**: stepper via `st.form` → `session_state`  
+  3. **MapView**: Folium map + offline tiles  
+  4. **Hackathon Details**: info + check-in  
+  5. **MVP Showcase**: media carousel + Mollie modal  
+  6. **Investor Feed & Chat**: live updates  
+  7. **Profile & Integrations**: GitHub, payment settings  
+  8. **Admin**: dashboard metrics & controls  
+
+⸻  
+4) **Description of Individual Elements**  
+  • **`<PrepWizard>`**  
+    – Multi-step: experience, theme, skills, language, platform, custom stages  
+    – Saves draft to `st.session_state`  
+  • **`<Checklist>`**  
+    – Accordion UI with idea-validation, pitch template, MVP plan  
+    – “Save draft” via `st.cache`  
+  • **`<MapView>`**  
+    – Offline-cached tiles, pins colored by status (teal=open, magenta=full, gold=yours)  
+  • **`<HackathonCard>`**  
+    – Shows progress, start time, participant count  
+  • **`<MVPCard>`**  
+    – Media carousel + “Fund MVP” button → Mollie checkout flow (20 % fee shown)  
+  • **`<InvestorAvatars>`**  
+    – WebSocket-driven neon outlines floating across UI  
+  • **Mentor Tip Banners**  
+    – In-flow reminders labelled “Coming Soon: AI Mentor”  
+
+⸻  
+5) **User Roles & Permissions**  
+| Role        | Prep | Create | Join | Submit | Fund | Chat | Admin |
+|-------------|:----:|:------:|:----:|:------:|:----:|:----:|:-----:|
+| Guest       | ❌   | ❌     | ❌   | ❌     | ❌   | ❌   | ❌    |
+| Participant | ✔    | ✔      | ✔    | ✔      | ❌   | ✔    | ❌    |
+| Investor    | ❌   | ❌     | ✔    | ❌     | ✔    | ✔    | ❌    |
+| Organizer   | ✔    | ✔      | ✔    | ✔      | ✔    | ✔    | ❌    |
+| Admin       | ✔    | ✔      | ✔    | ✔      | ✔    | ✔    | ✔     |
+
+⸻  
+6) **Administrative Section**  
+  • **Dashboard**: #events, #MVPs, funding volume, completion rate  
+  • **Event Manager**: edit/cancel events, configure templates & stages  
+  • **User Manager**: assign roles, activate/deactivate accounts  
+  • **GitHub Manager**: manage boilerplate repos, review fork analytics  
+  • **Payment Admin**: view Mollie & crypto transactions, process refunds  
+  • **System Settings**: theme colors, PWA manifest, AI-mentor pricing  
+
+inputs      = input("Inputs (brand model, big idea, Clean Architecture layers): 
+
+Vibratonic (Win32 Sub-Brand)
+— Updated Brand Model & Big Idea with In-App MVP Funding
+
+⸻
+
+1️⃣ Emotional & Functional Needs
+	•	Emotional
+	•	Thrill of immediate investment in fresh ideas
+	•	Confidence that their project can scale beyond the hackathon
+	•	Pride in being part of a creator-investor ecosystem
+	•	Functional
+	•	Create & join offline hackathons (location + time)
+	•	Showcase MVPs in-app with seamless Mollie & crypto payments
+	•	Enable investors to back projects directly (20 % platform fee)
+	•	Built-in event logistics (maps, check-in, chat, voting)
+
+⸻
+
+2️⃣ Target Audiences
+	•	Creators: solo coders & mixed teams (dev + art) hungry for workshops, funding, and real-world connections
+	•	Investors: early-stage patrons seeking vetted MVPs and high-energy hackathon outputs
+
+⸻
+
+3️⃣ Core Insight
+
+“I need one tool that not only sparks my creative flow at hackathons but also lets me prove and fund my prototype on the spot—while giving investors a front-row seat to backing the next big idea.”
+
+⸻
+
+4️⃣ Brand Attributes
+	•	Playful: gamified hackathon journey
+	•	Trustworthy: secure payments & transparent 20 % fee
+	•	Collaborative: teams + investors co-creating success
+	•	Dynamic: fluid hackathon → MVP → funding cycle
+
+⸻
+
+5️⃣ Emotional Benefits
+	•	Instant validation (“My MVP got traction and backing!”)
+	•	Belonging to a high-octane innovation community
+	•	Relief from piecing together separate tools (event, demo, funding)
+
+⸻
+
+6️⃣ Values
+	•	Empowerment: creators own their journey
+	•	Fair-play: flat 20 % platform fee, clear terms
+	•	Transparency: live funding metrics & fee breakdown
+	•	Innovation: rapid prototyping meets real investment
+
+⸻
+
+7️⃣ Positioning
+
+Vibratonic is the mobile web-app that lets you launch offline VibeCoding hackathons, showcase MVPs, and secure funding—all from one intuitive interface.
+
+⸻
+
+🎯 Big Idea (Form → Drama → Benefit)
+	•	Form:
+A sleek mobile web-app where you spin up an offline hackathon, demo your MVP in real time, and invite investors to back it via mollie or crypto—while the platform takes a clear 20 % commission.
+	•	Drama:
+The usual scatter of separate event, demo, and funding platforms collapses into one smooth “vibe → build → fund” loop. No more chasing sponsors across email; now they invest in the moment of your creative spark.
+	•	Benefit:
+	•	Creators walk away with cash-backed prototypes and energized networks.
+	•	Investors discover and support next-gen talent without friction.
+	•	Vibratonic powers a self-sustaining, high-velocity ecosystem—fueling Win32’s mission of tuned, burnout-free creative success.
+
+")
+constraints = input("Constraints (colors: #00FFE1, #FF00A8, #FFD700; Python Clean Arch; mobile-first PWA; 20 % fee; offline hackathons): ")
+kpi         = input("KPI/Success (Replit vibecoding test; complete layers; brand-aligned UI; funding loop; UX & perf targets; money transactions in app): ")
+
+—🔍 **RESEARCH**—  
+Use web search to gather:  
+  • Streamlit state management & custom component docs  
+  • Mollie Python SDK quick-start & checkout URL samples  
+
+Collect 2–3 ideal snippets before coding.
+
+—🪜 **EXECUTION PLAN**—  
+1. **Analyze & Plan**  
+   - Parse spec, sketch pages & Clean-Arch tasks  
+2. **Gather Resources**  
+   - Find Streamlit–Folium, WebSocket component, Mollie SDK examples  
+3. **Implement Iteratively**  
+   - Scaffold `0_domain`→`3_frameworks`  
+   - Configure FastAPI CORS & WebSocket  
+   - Create `streamlit.toml` + initial multi-page structure  
+   - Integrate Mollie checkout  
+4. **Test & Validate**  
+   - Preview in Replit: state, map, WebSocket feed, Mollie modal  
+   - Verify performance targets  
+5. **Refine & Document**  
+   - Polish neon theming & edge cases  
+   - Update README with setup, `MOLLIE_API_KEY`, and testing steps  
+
+—🐍 **PYTHON SNIPPET EXAMPLE**—  
+```python
+# plan: instantiate domain entity for a hackathon
+from src._0_domain.hackathon import Hackathon
+
+hc = Hackathon(
+    id="evt001",
+    venue="Centrum Kraków",
+    datetime="2025-08-15T10:00:00Z",
+    participants=[],
+    mvp_list=[],
+    funding_total=0
+)
+
+# reflect: confirm the entity holds correct data
+assert hc.venue == "Centrum Kraków"
