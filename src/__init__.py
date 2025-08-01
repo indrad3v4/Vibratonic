@@ -1,0 +1,1 @@
+# Vibratonic - Clean Architecture Package

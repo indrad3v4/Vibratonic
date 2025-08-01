@@ -1,0 +1,657 @@
+/* Vibratonic Custom CSS - Neon Theme */
+
+/* Root variables for consistent theming */
+:root {
+    --primary-neon: #00FFE1;
+    --secondary-neon: #FF00A8;
+    --accent-neon: #FFD700;
+    --background-dark: #0A0A0A;
+    --surface-dark: #1A1A1A;
+    --text-primary: #FFFFFF;
+    --text-secondary: #CCCCCC;
+    --text-muted: #888888;
+    --border-color: #333333;
+    --shadow-neon: 0 0 20px;
+}
+
+/* Base styling overrides */
+body {
+    font-family: 'Inter', 'Roboto', sans-serif;
+    background-color: var(--background-dark);
+    color: var(--text-primary);
+    line-height: 1.6;
+}
+
+/* Header components */
+.header-container {
+    background: linear-gradient(135deg, var(--background-dark) 0%, rgba(0, 255, 225, 0.05) 100%);
+    border-bottom: 2px solid var(--primary-neon);
+    padding: 1.5rem 0;
+    margin-bottom: 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo-section {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.app-title {
+    color: var(--primary-neon);
+    font-size: 2.8rem;
+    font-weight: 900;
+    margin: 0;
+    text-shadow: var(--shadow-neon) var(--primary-neon);
+    letter-spacing: 2px;
+}
+
+.app-tagline {
+    color: var(--secondary-neon);
+    font-size: 1.1rem;
+    margin: 0;
+    text-shadow: var(--shadow-neon) var(--secondary-neon);
+    font-weight: 500;
+    opacity: 0.9;
+}
+
+.user-section {
+    text-align: right;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+}
+
+.user-greeting {
+    color: var(--text-primary);
+    font-size: 1.1rem;
+    font-weight: 500;
+}
+
+.user-role {
+    color: var(--accent-neon);
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+
+/* Navigation styling */
+.nav-container {
+    margin-bottom: 2rem;
+    background: rgba(26, 26, 26, 0.8);
+    border-radius: 16px;
+    padding: 0.5rem;
+    backdrop-filter: blur(10px);
+}
+
+/* Enhanced button styling */
+.stButton > button {
+    background: linear-gradient(135deg, var(--primary-neon), var(--secondary-neon));
+    border: none;
+    border-radius: 12px;
+    color: #000000;
+    font-weight: 700;
+    padding: 0.75rem 1.5rem;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-size: 0.9rem;
+    box-shadow: 0 4px 15px rgba(0, 255, 225, 0.3);
+}
+
+.stButton > button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(0, 255, 225, 0.5);
+    background: linear-gradient(135deg, var(--secondary-neon), var(--primary-neon));
+}
+
+.stButton > button:active {
+    transform: translateY(-1px);
+}
+
+/* Card components */
+.hack-card, .mvp-card, .action-card {
+    background: linear-gradient(145deg, var(--surface-dark), rgba(26, 26, 26, 0.8));
+    border: 1px solid var(--border-color);
+    border-radius: 16px;
+    padding: 2rem;
+    margin: 1.5rem 0;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    backdrop-filter: blur(10px);
+    position: relative;
+    overflow: hidden;
+}
+
+.hack-card:hover, .mvp-card:hover, .action-card:hover {
+    border-color: var(--primary-neon);
+    box-shadow: 0 12px 40px rgba(0, 255, 225, 0.3);
+    transform: translateY(-5px);
+}
+
+.hack-card::before, .mvp-card::before, .action-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, var(--primary-neon), var(--secondary-neon), var(--accent-neon));
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.hack-card:hover::before, .mvp-card:hover::before, .action-card:hover::before {
+    opacity: 1;
+}
+
+/* Typography enhancements */
+.hack-title, .mvp-title {
+    color: var(--primary-neon);
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    text-shadow: 0 0 10px rgba(0, 255, 225, 0.3);
+}
+
+.hack-description, .mvp-description {
+    color: var(--text-secondary);
+    margin-bottom: 1.5rem;
+    line-height: 1.7;
+}
+
+/* Enhanced progress bars */
+.progress-bar {
+    width: 100%;
+    height: 10px;
+    background: var(--border-color);
+    border-radius: 8px;
+    overflow: hidden;
+    margin: 1.5rem 0;
+    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.progress-fill {
+    height: 100%;
+    background: linear-gradient(90deg, var(--primary-neon), var(--secondary-neon));
+    border-radius: 8px;
+    transition: width 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 0 10px rgba(0, 255, 225, 0.5);
+}
+
+.funding-bar {
+    width: 100%;
+    height: 8px;
+    background: var(--border-color);
+    border-radius: 6px;
+    overflow: hidden;
+    margin: 0.5rem 0;
+}
+
+.funding-fill {
+    height: 100%;
+    background: linear-gradient(90deg, var(--accent-neon), var(--primary-neon));
+    border-radius: 6px;
+    transition: width 0.5s ease;
+    box-shadow: 0 0 8px rgba(255, 215, 0, 0.4);
+}
+
+/* Enhanced tag styling */
+.tag, .tech-tag, .skill-tag, .tech-tag-small {
+    display: inline-block;
+    padding: 0.4rem 0.8rem;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    margin: 0.3rem 0.2rem;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.tag {
+    background: rgba(0, 255, 225, 0.15);
+    color: var(--primary-neon);
+    border: 1px solid rgba(0, 255, 225, 0.4);
+}
+
+.tag:hover {
+    background: rgba(0, 255, 225, 0.25);
+    box-shadow: 0 0 15px rgba(0, 255, 225, 0.4);
+}
+
+.tech-tag, .tech-tag-small {
+    background: rgba(255, 0, 168, 0.15);
+    color: var(--secondary-neon);
+    border: 1px solid rgba(255, 0, 168, 0.4);
+}
+
+.tech-tag:hover, .tech-tag-small:hover {
+    background: rgba(255, 0, 168, 0.25);
+    box-shadow: 0 0 15px rgba(255, 0, 168, 0.4);
+}
+
+.skill-tag {
+    background: rgba(255, 215, 0, 0.15);
+    color: var(--accent-neon);
+    border: 1px solid rgba(255, 215, 0, 0.4);
+}
+
+.skill-tag:hover {
+    background: rgba(255, 215, 0, 0.25);
+    box-shadow: 0 0 15px rgba(255, 215, 0, 0.4);
+}
+
+.tech-tag-small {
+    padding: 0.25rem 0.5rem;
+    font-size: 0.7rem;
+}
+
+/* Status indicators */
+.hack-status, .mvp-status {
+    font-weight: 700;
+    padding: 0.4rem 0.8rem;
+    border-radius: 12px;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(5px);
+}
+
+/* Hero section enhancements */
+.hero-section {
+    text-align: center;
+    padding: 4rem 2rem;
+    background: radial-gradient(ellipse at center, rgba(0, 255, 225, 0.1) 0%, rgba(255, 0, 168, 0.05) 50%, transparent 100%);
+    border-radius: 24px;
+    margin-bottom: 3rem;
+    position: relative;
+    overflow: hidden;
+}
+
+.hero-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(45deg, transparent 30%, rgba(0, 255, 225, 0.02) 50%, transparent 70%);
+    animation: shimmer 3s ease-in-out infinite;
+}
+
+@keyframes shimmer {
+    0%, 100% { transform: translateX(-100%); }
+    50% { transform: translateX(100%); }
+}
+
+.hero-title {
+    color: var(--text-primary);
+    font-size: 3rem;
+    font-weight: 900;
+    margin-bottom: 1.5rem;
+    text-shadow: 0 0 30px rgba(0, 255, 225, 0.3);
+    position: relative;
+    z-index: 1;
+}
+
+.hero-description {
+    color: var(--text-secondary);
+    font-size: 1.3rem;
+    max-width: 700px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 1;
+    font-weight: 400;
+}
+
+/* Profile components */
+.profile-avatar, .profile-avatar-large {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.avatar-circle, .avatar-circle-large {
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--primary-neon), var(--secondary-neon));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
+    font-weight: 900;
+    color: #000000;
+    box-shadow: 0 8px 32px rgba(0, 255, 225, 0.4);
+    transition: all 0.3s ease;
+}
+
+.avatar-circle {
+    width: 80px;
+    height: 80px;
+    font-size: 2rem;
+}
+
+.avatar-circle-large {
+    width: 120px;
+    height: 120px;
+    font-size: 3rem;
+}
+
+.avatar-circle:hover, .avatar-circle-large:hover {
+    transform: scale(1.05);
+    box-shadow: 0 12px 40px rgba(0, 255, 225, 0.6);
+}
+
+/* Activity feed styling */
+.activity-item, .activity-card {
+    background: linear-gradient(135deg, var(--surface-dark), rgba(26, 26, 26, 0.9));
+    border-left: 4px solid var(--primary-neon);
+    padding: 1.5rem;
+    margin: 1rem 0;
+    border-radius: 12px;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(5px);
+}
+
+.activity-item:hover, .activity-card:hover {
+    border-left-color: var(--secondary-neon);
+    box-shadow: 0 4px 20px rgba(0, 255, 225, 0.2);
+    transform: translateX(5px);
+}
+
+.activity-icon {
+    font-size: 1.3rem;
+    margin-right: 1rem;
+    display: inline-block;
+}
+
+.activity-text {
+    color: var(--text-primary);
+    font-weight: 500;
+}
+
+.activity-time {
+    color: var(--text-muted);
+    font-size: 0.9rem;
+    float: right;
+    font-weight: 400;
+}
+
+/* Funding components */
+.funding-tier {
+    background: linear-gradient(145deg, var(--surface-dark), rgba(26, 26, 26, 0.8));
+    border: 2px solid;
+    border-radius: 16px;
+    padding: 1.5rem;
+    margin: 1rem 0.5rem;
+    text-align: center;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    backdrop-filter: blur(10px);
+}
+
+.funding-tier:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+.tier-amount {
+    font-size: 1.8rem;
+    font-weight: 800;
+    color: var(--text-primary);
+    margin: 1rem 0;
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
+}
+
+.tier-description {
+    color: var(--text-secondary);
+    margin-bottom: 1rem;
+    font-weight: 500;
+}
+
+.tier-rewards {
+    color: var(--text-muted);
+    font-size: 0.9rem;
+    line-height: 1.6;
+}
+
+/* Enhanced form styling */
+.stTextInput > div > div > input,
+.stTextArea > div > div > textarea,
+.stSelectbox > div > div > select,
+.stNumberInput > div > div > input {
+    background-color: rgba(26, 26, 26, 0.8);
+    border: 2px solid var(--border-color);
+    border-radius: 12px;
+    color: var(--text-primary);
+    padding: 0.75rem 1rem;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(5px);
+}
+
+.stTextInput > div > div > input:focus,
+.stTextArea > div > div > textarea:focus,
+.stSelectbox > div > div > select:focus,
+.stNumberInput > div > div > input:focus {
+    border-color: var(--primary-neon);
+    box-shadow: 0 0 20px rgba(0, 255, 225, 0.3);
+    background-color: rgba(26, 26, 26, 0.9);
+}
+
+/* Enhanced metric containers */
+[data-testid="metric-container"] {
+    background: linear-gradient(145deg, var(--surface-dark), rgba(26, 26, 26, 0.8));
+    border: 1px solid var(--border-color);
+    border-radius: 16px;
+    padding: 1.5rem;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+    transition: all 0.3s ease;
+    backdrop-filter: blur(10px);
+}
+
+[data-testid="metric-container"]:hover {
+    border-color: var(--primary-neon);
+    box-shadow: 0 8px 30px rgba(0, 255, 225, 0.2);
+    transform: translateY(-2px);
+}
+
+/* Footer styling */
+.footer {
+    text-align: center;
+    padding: 3rem 0;
+    border-top: 1px solid var(--border-color);
+    margin-top: 4rem;
+    color: var(--text-muted);
+    background: linear-gradient(135deg, transparent, rgba(0, 255, 225, 0.02));
+}
+
+/* Custom animations */
+@keyframes glow-pulse {
+    0%, 100% { 
+        text-shadow: 0 0 5px currentColor, 0 0 10px currentColor; 
+    }
+    50% { 
+        text-shadow: 0 0 10px currentColor, 0 0 20px currentColor, 0 0 30px currentColor; 
+    }
+}
+
+.glow-text {
+    animation: glow-pulse 2s ease-in-out infinite;
+}
+
+@keyframes float {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-10px); }
+}
+
+.floating-element {
+    animation: float 3s ease-in-out infinite;
+}
+
+/* Profile specific styling */
+.hack-card-profile, .mvp-card-profile {
+    background: linear-gradient(145deg, var(--surface-dark), rgba(26, 26, 26, 0.8));
+    border: 1px solid var(--border-color);
+    border-radius: 16px;
+    padding: 1.5rem;
+    margin: 1rem 0;
+    transition: all 0.3s ease;
+}
+
+.hack-stats, .mvp-funding-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 1rem 0;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.hack-stats span, .mvp-funding-info span {
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+}
+
+/* Investment and user activity styling */
+.investment-item, .user-activity-item {
+    background: rgba(26, 26, 26, 0.6);
+    border-radius: 12px;
+    padding: 1rem;
+    margin: 0.5rem 0;
+    border-left: 3px solid var(--accent-neon);
+}
+
+.investment-header, .investment-details {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0.5rem 0;
+}
+
+/* Chat styling */
+.chat-message {
+    background: rgba(26, 26, 26, 0.8);
+    border-radius: 12px;
+    padding: 1rem;
+    margin: 0.5rem 0;
+    border-left: 3px solid var(--primary-neon);
+}
+
+.chat-avatar {
+    font-size: 1.2rem;
+    margin-right: 0.5rem;
+}
+
+.chat-time {
+    color: var(--text-muted);
+    font-size: 0.8rem;
+}
+
+.chat-text {
+    color: var(--text-secondary);
+    margin-top: 0.5rem;
+    display: block;
+}
+
+/* Responsive design enhancements */
+@media (max-width: 768px) {
+    .app-title {
+        font-size: 2.2rem;
+    }
+    
+    .hero-title {
+        font-size: 2.5rem;
+    }
+    
+    .hero-description {
+        font-size: 1.1rem;
+    }
+    
+    .hack-card, .mvp-card, .action-card {
+        padding: 1.5rem;
+        margin: 1rem 0;
+    }
+    
+    .header-container {
+        flex-direction: column;
+        text-align: center;
+        gap: 1rem;
+    }
+    
+    .hero-section {
+        padding: 3rem 1rem;
+    }
+    
+    .hack-stats, .mvp-funding-info {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.5rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .app-title {
+        font-size: 1.8rem;
+    }
+    
+    .hero-title {
+        font-size: 2rem;
+    }
+    
+    .hero-section {
+        padding: 2rem 1rem;
+    }
+    
+    .hack-card, .mvp-card, .action-card {
+        padding: 1rem;
+    }
+    
+    .tier-amount {
+        font-size: 1.5rem;
+    }
+    
+    .avatar-circle-large {
+        width: 100px;
+        height: 100px;
+        font-size: 2.5rem;
+    }
+}
+
+/* Dark mode scrollbar */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--background-dark);
+}
+
+::-webkit-scrollbar-thumb {
+    background: linear-gradient(180deg, var(--primary-neon), var(--secondary-neon));
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(180deg, var(--secondary-neon), var(--primary-neon));
+}
+
+/* Hide Streamlit elements */
+#MainMenu {visibility: hidden;}
+footer {visibility: hidden;}
+.stDeployButton {display: none;}
+
+/* Custom loading animation */
+@keyframes neon-loading {
+    0%, 100% { 
+        box-shadow: 0 0 5px var(--primary-neon);
+    }
+    50% { 
+        box-shadow: 0 0 20px var(--primary-neon), 0 0 30px var(--secondary-neon);
+    }
+}
+
+.loading-neon {
+    animation: neon-loading 1.5s ease-in-out infinite;
+}
