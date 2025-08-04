@@ -5,7 +5,7 @@
 ### Turn any room into a funded hackathon in minutes.
 
 ## Vision
-Vibratonic scales offline VibeCoding hackathons by bundling event setup, demo space, and funding rails into one neon‑themed app. Teams code without the cloud, investors browse on‑device, and a decentralised coding movement sparks wherever a laptop opens.
+Vibratonic scales offline VibeCoding hackathons by bundling event setup, demo space, and funding rails into one neon‑themed app. Teams code without the cloud, investors browse on‑device, and a decentralised coding movement sparks wherever a laptop opens: https://vibratonic.replit.app
 
 ## Key Features
 - **Offline‑first core** – session state caching and service‑worker hooks keep hackathons running even when Wi‑Fi drops.
@@ -38,6 +38,6 @@ Runs fully offline; add `MOLLIE_API_KEY` later for live payments.
 Sponsoring Vibratonic fuels a self‑sustaining ecosystem where local hackers become investible founders, with transparent 20 % platform fees ensuring longevity. Backers gain early access to talent, brand visibility at grassroots events, and a direct hand in shaping open‑source tooling. [Pledge via GitHub Sponsors](https://github.com/sponsors/indrad3v4) and pick a tier that matches your vibe.
 
 ## Contributing & Licence
-Pull requests and issue reports are welcome—just keep the tone friendly and code readable. This project is released under the MIT Licence. See `LICENSE` for details.
+Pull requests and issue reports are welcome — just keep the tone friendly and code readable. This project is released under the MIT Licence. See `LICENSE` for details.
 
 Ready to build the future of vibecoding together?
